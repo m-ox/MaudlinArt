@@ -5,12 +5,13 @@ import {
     Route,
     Link
 } from 'react-router-dom'
+import { CSSTransition } from "react-transition-group";
 
 import Gallery from './components/Gallery/Gallery'
 import About from './components/About/About'
 import Home from './components/Home/Home'
 
-import moth from './images/litemoth.png'
+import moth from './images/moth.png'
 import backdrop from './images/backdrop4.png'
 
 export default class App extends Component {
