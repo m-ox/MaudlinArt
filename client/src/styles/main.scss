@@ -1,3 +1,14 @@
 @import "./variables.scss";
-@import "./base.scss";
 @import "./navbar.scss";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+.home, .contact, .about, .gallery {
+    display: flex;
+    flex-direction: column;
+}
