@@ -10,6 +10,7 @@ const useForm = (callback, validate) => {
     })
     const [errors, setErrors] = useState({})
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [emailSend, setEmailSending] = useState('')
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -24,22 +25,25 @@ const useForm = (callback, validate) => {
 
         setErrors(validate(values))
         setIsSubmitting(true)
-        
-        // emailjs.sendForm('gmail', 'maudlin_template', e.target, 'user_uuwkLmasO07PFD6K5Kupt')
-        //   .then((result) => {
-        //       console.log(result.text);
-        //       setIsSubmitting(true);
-        //       console.log(isSubmitting)
-        //       e.target.reset()
-        //   }, (error) => {
-        //       console.log(error.text);
-        //   })
+        setEmailSending(e)
     }
 
     //I'm doing a no no but the internet says this is one of the few times this warning isn't neccessary
     /* eslint-disable react-hooks/exhaustive-deps */
     useEffect( () => {
           if (Object.keys(errors).length === 0 && isSubmitting) {
+              console.log(emailSend.target)
+
+              emailjs.sendForm('gmail', 'maudlin_template', emailSend.target, 'user_uuwkLmasO07PFD6K5Kupt')
+          .then((result) => {
+              console.log(result.text);
+              setIsSubmitting(true);
+              console.log(isSubmitting)
+              emailSend.target.reset()
+          }, (error) => {
+              console.log(error.text);
+          })
+
             callback()
           }
         },

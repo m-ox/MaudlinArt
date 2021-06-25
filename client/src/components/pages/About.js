@@ -7,7 +7,7 @@ function About() {
         <div className="about">
             <div className="container">
                 <div className="picofme">
-                    <img src={me} alt="picture of maud"/>
+                    <img src={me} alt="maud"/>
                 </div>
                 <div className="content-wrapper">
                     <div className="about-description">

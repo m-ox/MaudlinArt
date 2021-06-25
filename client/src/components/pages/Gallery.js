@@ -1,9 +1,12 @@
 import React from 'react'
+import GalleryContainer from '../Gallery/GalleryContainer'
 
 function Gallery() {
     return (
         <div className="gallery">
-            <h1>Gallery</h1>
+            <div className="container">
+                <GalleryContainer />
+            </div>
         </div>
     )
 }

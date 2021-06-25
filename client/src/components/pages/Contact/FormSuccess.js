@@ -1,5 +1,4 @@
 import React from 'react'
-import mothbackground from '../../../images/mothbackground.jpg'
 
 function FormSuccess() {
     return (
