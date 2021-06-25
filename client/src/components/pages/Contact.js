@@ -1,39 +1,33 @@
-import React from 'react'
-import emailjs from 'emailjs-com';
+import React, { useState } from 'react'
 
-function sendEmail(e) {
-    e.preventDefault();
+import mothbackground from '../../images/mothbackground.jpg'
 
-    emailjs.sendForm('gmail', 'maudlin_template', e.target, 'user_uuwkLmasO07PFD6K5Kupt')
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
-      e.target.reset()
-  }
+import Form from './Contact/Form'
+import FormSuccess from './Contact/FormSuccess'
 
 function Contact() {
+    const [isSubmitted, setIsSubmitted] = useState(false)
+
+    function submitForm() {
+        setIsSubmitted(true)
+    }
+
     return (
         <div className="contact">
-            <div className="hero-section">
-                <span className="smol">Don't be a stranger</span>
-                <span className="beeg">Contact Me.</span>
+            <div className="skewed-background">
+                <img src={mothbackground} className="skewed-image" alt="form submission background"/>
             </div>
-            <div className="contact-form">
-                <h2>I'd love to talk about collaborations, showings, or if you just want to say hello that's fine too!</h2>
-
-                <form className="contact-form" onSubmit={sendEmail}>
-                    <label>Name</label>
-                    <input type="text" name="name" />
-                    <label>Email</label>
-                    <input type="email" name="email" />
-                    <label>Phone</label>
-                    <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
-                    <label>Message</label>
-                    <textarea name="message" />
-                    <input type="submit" value="Send" />
-                </form>
+            <div className="skewed-content">
+                <div className="hero-section">
+                    <span className="smol">Don't be a stranger</span>
+                    <h4 className="beeg">Contact Me.</h4>
+                </div>
+                <div className="contact-form">
+                    {!isSubmitted ?
+                        (<Form submitForm={submitForm}/>) :
+                        (<FormSuccess />)
+                    }
+                </div>
             </div>
         </div>
     )
