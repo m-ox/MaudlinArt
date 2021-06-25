@@ -19,6 +19,7 @@ function Navbar() {
             <div className="navbar">
                 <Link to="#" className="hamburger">
                     <Fa.FaBars onClick={showSidebar}/>
+                    <p>Maudlin</p>
                 </Link>
                 <img src={moth} alt="logo"/>
             </div>

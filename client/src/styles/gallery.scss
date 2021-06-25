@@ -1,0 +1,37 @@
+.gallery {
+    align-items: center;
+
+    .container {
+        width: 81%;
+        margin: 40px 0;
+        display: flex;
+        flex-direction: column;
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            place-items: center;
+
+            .gallery-item {
+                max-width: 500px;
+                height: 400px;
+                transition: .5s;
+                justify-items: center;
+
+                &:hover {
+                    filter: brightness(1.2);
+                }
+
+                img {
+                    max-width: inherit;
+                    height: inherit;
+                }
+
+                p {
+                    display: none;
+                }
+            }
+        }
+    }
+}

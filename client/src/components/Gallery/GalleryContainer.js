@@ -5,15 +5,48 @@ export default class GalleryContainer extends Component {
     constructor() {
         super()
 
+        this.state = {
+            galleryData: [],
+            isLoading: true,
+        }
+
         this.getGalleryItems = this.getGalleryItems.bind()
     }
 
-    getGalleryItems() {
+    getGalleryItems = () => {
         axios
             .get("http://localhost:5000/api/artwork")
             .then(res => {
-                console.log(res)
+                this.setState({
+                    galleryData: res.data
+                })
             })
+            .catch(error => {
+                console.log("There was an error retrieving the gallery items", error);
+              })
+    }
+
+    galleryItems() {
+        const artwork = this.state.galleryData.map(artwork => {
+
+            const {
+                date,
+                description,
+                medium,
+                title,
+                url,
+                _id
+             } = artwork
+
+            return (
+                <div key={_id} className="gallery-item">
+                    <img src={url}/>
+                    <p>{description}</p>
+                </div>
+            )
+        })
+
+        return artwork
     }
 
     componentDidMount() {
@@ -21,9 +54,10 @@ export default class GalleryContainer extends Component {
     }
 
     render() {
+
         return (
-            <div>
-                
+            <div className="gallery-grid">
+                {this.galleryItems()}
             </div>
         )
     }

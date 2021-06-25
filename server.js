@@ -1,6 +1,8 @@
 const express = require('express')
 const connectDB = require('./config/db');
-var cors = require('cors')
+const cors = require('cors');
+const cookieSession = require('cookie-session')
+
 
 const app = express()
 const { check, validationResult } = require("express-validator");
@@ -16,6 +18,17 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
     next();
   });
+  app.set('trust proxy', 1)
+  app.use(
+      cookieSession({
+        name: "__session",
+        keys: ["key1"],
+          maxAge: 24 * 60 * 60 * 100,
+          secure: true,
+          httpOnly: true,
+          sameSite: 'none'
+      })
+  );
 
 //Define routes
 app.use('/api/artwork', require('./api/artwork'))
