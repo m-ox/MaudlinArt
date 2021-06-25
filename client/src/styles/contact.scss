@@ -4,12 +4,13 @@
     .skewed-background {
         position: absolute;
         z-index: 1;
-        height: 120vh;
+        height: 1450px;
         width: calc(100vw - 7px);
 
         .skewed-image {
             overflow-x: hidden;
-            width: calc(100vw - 7px);
+            height: inherit;
+            width: inherit;
         }
     }
 
@@ -75,6 +76,17 @@
                 background: #fff;
                 font-family: 'Yanone Kaffeesatz', sans-serif;
                 font-size: 2em;
+                transition: .5s;
+
+                &:hover {
+                    background: $orange;
+                    color: $offwhite;
+                }
+
+                &:active {
+                    background: $darkgrey;
+                    color: $offwhite;
+                }
             }
         }
 
@@ -82,6 +94,30 @@
             color: $orange;
             font-style: italic;
             margin-bottom: 5px;
+        }
+    }
+}
+
+
+@media (max-width: 680px) {
+
+    .contact {
+
+        .skewed-background {
+            width: 1000px;
+            height: 1000px;
+            overflow-y: hidden;
+
+            .skewed-image {
+                overflow-y: hidden;
+                height: inherit;
+                width: inherit;
+            }
+        }
+
+        .skewed-content {
+            margin: 50px 0;
+            background: rgba(0, 0, 0, 0.864);
         }
     }
 }
