@@ -42,7 +42,6 @@ export default class GalleryContainer extends Component {
                 }}>
                     <div className="gallery-item">
                         <img src={artwork.url} alt={description}/>
-                        <p>{artwork.description}</p>
                     </div>
                 </Link>
             )

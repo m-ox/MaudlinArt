@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 
 import * as Fa from 'react-icons/fa'
-import * as Ai from 'react-icons/ai'
 import moth from '../../images/moth.png'
 
 import { SidebarData } from './SidebarData'
@@ -17,19 +16,18 @@ function Navbar() {
         <>
         <IconContext.Provider value={{ color: '#fafafa'}}>
             <div className="navbar">
-                <Link to="#" className="hamburger">
-                    <Fa.FaBars onClick={showSidebar}/>
-                    <p>Maudlin</p>
-                </Link>
+                <div className="hamburger">
+                    <Link to="#">
+                        <Fa.FaBars onClick={showSidebar}/>
+                    </Link>
+                    <Link to ="/" className="name">
+                        <h2>Maudlin</h2>
+                    </Link>
+                </div>
                 <img src={moth} alt="logo"/>
             </div>
             <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
                 <div className='nav-menu-items' onClick={showSidebar}>
-                    <div className="navbar-toggle">
-                        <Link to="#" className="hamburgers">
-                            <Ai.AiOutlineClose />
-                        </Link>
-                    </div>
                     {SidebarData.map((item, idx) => {
                         return (
                             <div key={idx} className={item.cName}>

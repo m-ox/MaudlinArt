@@ -4,12 +4,6 @@ import * as Bs from 'react-icons/bs'
 
 export const SidebarData = [
     {
-        title: 'Gallery',
-        path: '/',
-        icon: <Bs.BsGridFill />,
-        cName: 'nav-text'
-    },
-    {
         title: 'About',
         path: '/about',
         icon: <Ai.AiFillSmile />,

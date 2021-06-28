@@ -1,0 +1,19 @@
+@import "./variables.scss";
+@import "./navbar.scss";
+@import "./auth.scss";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    background-color: $darkergrey;
+}
+
+.home, .contact, .about, .gallery {
+    display: flex;
+    flex-direction: column;
+}
