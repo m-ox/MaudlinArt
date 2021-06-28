@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export default class GalleryContainer extends Component {
     constructor() {
@@ -30,19 +31,20 @@ export default class GalleryContainer extends Component {
         const artwork = this.state.galleryData.map(artwork => {
 
             const {
-                date,
-                description,
-                medium,
-                title,
-                url,
-                _id
+                _id,
+                description
              } = artwork
 
             return (
-                <div key={_id} className="gallery-item">
-                    <img src={url}/>
-                    <p>{description}</p>
-                </div>
+                <Link key={_id} to={{
+                    pathname: `/g/${_id}`,
+                    artwork: artwork
+                }}>
+                    <div className="gallery-item">
+                        <img src={artwork.url} alt={description}/>
+                        <p>{artwork.description}</p>
+                    </div>
+                </Link>
             )
         })
 

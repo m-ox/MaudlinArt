@@ -1,6 +1,13 @@
 @import "./variables.scss";
 @import "./navbar.scss";
+@import "./contact.scss";
+@import "./about.scss";
+@import "./gallery.scss";
+@import "./gallery-item.scss";
 @import "./auth.scss";
+
+html {
+}
 
 * {
     box-sizing: border-box;
