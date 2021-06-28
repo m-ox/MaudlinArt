@@ -32,9 +32,11 @@ app.use(function(req, res, next) {
 
 //Define routes
 app.use('/api/artwork', require('./api/artwork'))
+app.use('/api/users', require('./api/user'))
+app.use('/api/auth', require('./api/auth'))
 
-app.get('/', (req, res) => res.send('API Running'))
+app.get('/', (req, res) => res.send('Artwork API Running'))
 
 const PORT = process.env.PORT || 5000
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+app.listen(PORT, () => console.log(`Artwork server started on port ${PORT}`))

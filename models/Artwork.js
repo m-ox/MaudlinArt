@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const artworkSchema = new Schema({
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    },
     title: {
         type: String,
         unique: true,
@@ -26,6 +30,6 @@ const userSchema = new Schema({
     }
 });
 
-const Artwork = mongoose.model('Artwork', userSchema);
+const Artwork = mongoose.model('Artwork', artworkSchema);
 
 module.exports = Artwork;
