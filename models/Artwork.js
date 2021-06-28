@@ -27,6 +27,9 @@ const artworkSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    available: {
+        type: String
     }
 });
 

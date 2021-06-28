@@ -67,6 +67,7 @@ router.post('/', [auth,
                 url: `https://i.imgur.com/${req.body.url}`,
                 description: req.body.description,
                 medium: req.body.medium,
+                available: req.body.available,
                 user: user.id
             })
 
@@ -105,14 +106,16 @@ router.patch('/:id', auth,
                 title,
                 url,
                 medium,
-                description
+                description,
+                available
             } = req.body
 
             const newDetails = {
                 title: title || artwork.title,
                 url: url || artwork.url,
                 medium: medium || artwork.medium,
-                description: description || artwork.description
+                description: description || artwork.description,
+                available: available || artwork.available
             }
     
             updatedArtwork = await Artwork.findByIdAndUpdate(

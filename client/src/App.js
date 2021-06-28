@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar'
 import About from './components/pages/About'
 import Contact from './components/pages/Contact'
 import Gallery from './components/pages/Gallery'
+import Auth from './components/pages/Auth'
 
 export default class App extends Component {
 
@@ -17,6 +18,7 @@ export default class App extends Component {
             <Route exact path='/' component={Gallery}/>
             <Route path='/about' component={About}/>
             <Route path='/contact' component={Contact}/>
+            <Route path='/auth' component={Auth}/>
           </Switch>
         </Router>
         </>

@@ -37,7 +37,7 @@
 .nav-menu {
     background: $darkgrey;
     width: 175px;
-    height: 100vh;
+    height: 300px;
     display: flex;
     justify-content: center;
     position: fixed;
@@ -50,6 +50,7 @@
         position: absolute;
         z-index: 4;
         transition: 350ms;
+        height: 300px;
     }
 }
 
