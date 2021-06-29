@@ -1,5 +1,5 @@
 import React from 'react'
-import GalleryContainer from '../Gallery/GalleryContainer'
+import GalleryContainer from '../pages/Gallery/GalleryContainer'
 
 function Gallery() {
     return (

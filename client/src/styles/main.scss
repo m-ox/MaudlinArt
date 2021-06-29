@@ -1,5 +1,8 @@
 @import './variables.scss';
 @import './navbar.scss';
+@import './gallery.scss';
+@import './contact.scss';
+@import './footer.scss';
 
 * {
     box-sizing: border-box;
@@ -10,29 +13,7 @@
 
 body {
     background: $darkergrey;
+    height: 100vh;
 }
 
 
-.gallery {
-    width: auto;
-
-    .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
-        gap: 2em;
-
-        .gallery-item {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            height: 100%;
-
-            img {
-                width: 100%;
-                height: inherit;
-            }
-        }
-    }
-}

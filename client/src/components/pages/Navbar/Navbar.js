@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 
 import * as Fa from 'react-icons/fa'
-import moth from '../../images/moth.png'
+import moth from '../../../images/moth.png'
 
 import { SidebarData } from './SidebarData'
 import { IconContext } from 'react-icons'

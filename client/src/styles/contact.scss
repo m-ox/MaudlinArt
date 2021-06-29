@@ -1,0 +1,141 @@
+.contact {
+    width: auto;
+    min-height: 92vh;
+    background-image: url('../images/mothbackground.jpg');
+    background-size: cover;
+    display: flex;
+    place-content: center;
+
+    .contact-container {
+        max-width: 70ch;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin-top: 5em;
+        padding: 1rem 0;
+        position: absolute;
+        top: 5em;
+
+        width: 100%;
+        border-radius: 1em;
+
+        background: #000000d1;
+        color: #fff;
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            margin-bottom: 1rem;
+            text-align-last: center;
+            font-size: 2em;
+
+            .smol {
+                font-size: 1rem;
+            }
+            .beeg {
+                font-size: 2em;
+                text-align: center;
+            }
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            transition: 1s;
+            width: inherit;
+            align-items: center;
+            text-align: center;
+            font-size: 2em;
+            padding: 0;
+
+            form {
+                font-size: 2ch;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-gap: .5rem;
+                gap: .5rem;
+                overflow-y: auto;
+                justify-items: center;
+            }
+
+            h2 {
+                margin-bottom: 10px;
+                text-align-last: center;
+                font-size: 1.5rem;
+            }
+
+            label {
+                display: flex;
+                justify-self: center;
+                align-self: center;
+                flex-direction: column;
+                font-size: 1.2rem;
+
+                p {
+                    color: red;
+                    font-size: 1rem;
+                }
+            }
+
+            p {
+                margin-bottom: 1em;
+            }
+
+            input, textarea {
+                width: 90%;
+                max-width: 35ch;
+                height: 2rem;
+                padding: 1rem;
+                border-radius: 1em;
+                font-size: 1rem;
+                text-align-last: center;
+            }
+
+            #phone {
+                width: 15ch;
+            }
+
+            .message {
+                min-height: 20rem;
+                border-radius: 1em;
+                max-width: 40ch;
+                min-height: 20ch;
+            }
+
+            #submit-btn {
+                font-family: 'Yanone Kaffeesatz', sans-serif;
+                transition: .5s;
+                margin-bottom: 0px;
+                border-radius: 5em;
+                width: 50%;
+                padding-bottom: 1.5em;
+                letter-spacing: .4em;
+
+                &:hover {
+                    background: $orange;
+                    color: $offwhite;
+                    cursor: pointer;
+                }
+
+                &:active {
+                    background: $darkgrey;
+                    color: $offwhite;
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 767px) {
+    .beeg {
+        font-size: 1rem;
+    }
+
+    .contact-form {
+        max-height: 20ch;
+    }
+  }
+

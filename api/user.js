@@ -39,22 +39,20 @@ router.post(
 
         // Encrypt the password using bcrypt
 
-        const salt = await bcrypt.genSalt(15) // the more rounds you have the more secure
+        const salt = await bcrypt.genSalt(15)
 
-        user.password = await bcrypt.hash(password, salt) // this creates a hash and puts it into the user password
-        
-        await user.save(); // anything that returns a promise we want to but an await
+        user.password = await bcrypt.hash(password, salt)
 
-        // Return jsonwebtoken - helps us log in right away!
+        await user.save()
+
         const payload = {
             user: {
-                id: user.id // mongoose uses an abstraction, so need for underscore
+                id: user.id
             }
         }
 
-        // sign the token after passing in payload and secret
         jwt.sign(payload, config.get('jwtSecret'),
-        { expiresIn: 360000 }, // before deployment, ideally we have it at 3600
+        { expiresIn: 360000 },
         (err, token) => {
             if(err) throw err;
             res.json({ token })

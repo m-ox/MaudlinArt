@@ -23,5 +23,10 @@ export default function validateInfo(values) {
         errors.message = 'The message must be at least 15 characters long'
     }
 
+    if (errors) {
+        console.log('there were errors in the form!')
+        errors.class = "errors"
+    }
+
     return errors
 }
