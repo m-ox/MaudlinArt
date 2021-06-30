@@ -1,0 +1,113 @@
+.about {
+    width: auto;
+    min-height: 92vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    place-content: center !important;
+
+    background: linear-gradient(320deg, #000000, #659d8f, #000000, #62a8b7);
+    background-size: 800% 800%;
+
+    -webkit-animation: BackgroundWaves 10s ease infinite;
+    -moz-animation: BackgroundWaves 10s ease infinite;
+    animation: BackgroundWaves 10s ease infinite;
+
+    @-webkit-keyframes BackgroundWaves {
+        0%{background-position:0% 90%}
+        50%{background-position:100% 11%}
+        100%{background-position:0% 90%}
+    }
+    @-moz-keyframes BackgroundWaves {
+        0%{background-position:0% 90%}
+        50%{background-position:100% 11%}
+        100%{background-position:0% 90%}
+    }
+    @keyframes BackgroundWaves {
+        0%{background-position:0% 90%}
+        50%{background-position:100% 11%}
+        100%{background-position:0% 90%}
+    }
+
+    .picofme {
+        width: inherit;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .content-wrapper {
+        width: inherit;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        place-self: center;
+        text-align-last: center;
+        max-width: 40ch;
+        font-size: 2rem;
+        margin-top: -5em;
+
+        .about-description {
+            text-align-last: center;
+            text-align: -webkit-center;
+        }
+
+        .featured-works {
+            margin: 1em 2em;
+            font-size: .8em;
+            align-self: center;
+
+            h2 {
+                font-size: 1.2rem;
+                border-bottom: 1px dotted white;
+                padding: 2px;
+                margin-bottom: .5rem;
+            }
+
+            ul {
+                gap: .2em;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+            
+                a {
+                    transition: .5s;
+                    padding-left: 5px;
+                    width: 35ch;
+                    color: #fff;
+                    text-decoration-style: dotted;
+                    transition: .3s;
+
+                    &:hover {
+                        color: $orange;
+                    }
+                }
+
+                li {
+                    list-style: none;
+                    margin-bottom: 1rem;
+                    transition: .5s;
+                    width: 35ch;
+    
+                    &:hover {
+                        border-left: 5px solid white;
+                    }
+                }
+            }
+        }
+    }
+
+    .flexing {
+        margin: 1em 0;
+        font-size: .5rem;
+        align-content: center;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .about .content-wrapper {
+        font-size: 1rem;
+        margin: 1em;
+    }
+}
+

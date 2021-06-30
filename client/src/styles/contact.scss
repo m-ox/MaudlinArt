@@ -1,6 +1,6 @@
 .contact {
     width: auto;
-    min-height: 92vh;
+    min-height: 100vh;
     background-image: url('../images/mothbackground.jpg');
     background-size: cover;
     display: flex;
@@ -130,12 +130,46 @@
 
 
 @media only screen and (max-width: 767px) {
-    .beeg {
-        font-size: 1rem;
-    }
 
-    .contact-form {
-        max-height: 20ch;
+    .contact {
+        min-height: 80ch;
+
+        .contact-container {
+            margin-top: 4em;
+
+            .hero-section {
+                display: flex;
+                align-items: baseline;
+                gap: .5em;
+
+                .smol {
+                    font-size: .8rem;
+                }
+
+                .beeg {
+                    font-size: 2rem;
+                }
+            }
+
+            .contact-form {
+
+                form {
+                    min-height: 20ch;
+                }
+                
+                h2 {
+                    font-size: 1rem;
+                    max-widtH: 90%;
+                }
+
+                #phone {
+                    width: 20ch;
+                }
+
+                .message {
+                    min-height: 10ch;
+                }
+            }
+        }
     }
   }
-

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import ClipLoader from 'react-spinners/ClipLoader'
 
 export default class GalleryContainer extends Component {
     constructor() {
@@ -8,7 +9,7 @@ export default class GalleryContainer extends Component {
 
         this.state = {
             galleryData: [],
-            isLoading: true,
+            loading: false
         }
 
         this.getGalleryItems = this.getGalleryItems.bind()
@@ -31,8 +32,7 @@ export default class GalleryContainer extends Component {
         const artwork = this.state.galleryData.map(artwork => {
 
             const {
-                _id,
-                description
+                _id
              } = artwork
 
             return (
@@ -41,7 +41,7 @@ export default class GalleryContainer extends Component {
                     artwork: artwork
                 }}>
                     <div className="gallery-item">
-                        <img src={artwork.url} alt={description}/>
+                        <img src={artwork.url} alt={`${artwork.title} painting`}/>
                     </div>
                 </Link>
             )
@@ -51,15 +51,34 @@ export default class GalleryContainer extends Component {
     }
 
     componentDidMount() {
+        this.setState({
+            loading: true
+        })
         this.getGalleryItems()
+        setTimeout(() => {
+            this.setState({
+                loading: false
+            })
+        }, 1000)
     }
 
     render() {
 
         return (
-            <div className="gallery-grid">
-                {this.galleryItems()}
-            </div>
+            <>
+            {
+                this.state.loading ? 
+                <ClipLoader
+                    size={50}
+                    color={'#ffffff'}
+                    loading={this.state.loading}
+                />
+                :
+                <div className="gallery-grid">
+                    {this.galleryItems()}
+                </div>
+            }
+            </>
         )
     }
 }

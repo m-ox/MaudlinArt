@@ -1,5 +1,11 @@
 .gallery {
     width: auto;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 10em;
+    background-color: #1e2123;
 
     .gallery-grid {
         display: grid;
@@ -17,6 +23,10 @@
             img {
                 width: 100%;
                 height: inherit;
+                background-color: rgba(152, 192, 216, 0.069);
+                content-visibility: auto;
+                border-radius: 1em;
+                transition: .2s;
 
                 &:hover {
                     filter: brightness(1.2);

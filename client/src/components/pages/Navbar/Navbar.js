@@ -30,7 +30,7 @@ function Navbar() {
                 <div className='nav-menu-items' onClick={showSidebar}>
                     {SidebarData.map((item, idx) => {
                         return (
-                            <div key={idx} className={item.cName}>
+                            <div key={idx} className={item.cName} onMouseLeave={showSidebar}>
                                 <Link to={item.path}>
                                     {item.icon}
                                     <span>{item.title}</span>

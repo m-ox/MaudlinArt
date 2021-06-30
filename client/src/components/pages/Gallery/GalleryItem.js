@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-export default class GalleryDetail extends Component {
+export default class GalleryItem extends Component {
     constructor(props) {
         super(props)
 
@@ -16,10 +17,19 @@ export default class GalleryDetail extends Component {
             medium: '',
             title: '',
             url: '',
+            available: '',
             slug: slug
         }
+
+        this.formatDate = this.formatDate.bind(this)
     
       }
+
+    formatDate = (givendate) => {
+        const fDate = givendate.slice(0,10) 
+
+        return fDate
+    }
 
     getGalleryItem = () => {
         axios
@@ -35,10 +45,12 @@ export default class GalleryDetail extends Component {
                     url
                  } = res.data
 
+                 this.formatDate(date)
+
                  this.setState({
                     _id,
                     available,
-                    date,
+                    date: this.formatDate(date),
                     description,
                     medium,
                     title,
@@ -46,6 +58,7 @@ export default class GalleryDetail extends Component {
                  })
 
                  console.log('Artwork successfully retrieved', res.data)
+
             })
             .catch(error => {
                 console.log("There was an error retrieving the gallery item", error);
@@ -59,8 +72,32 @@ export default class GalleryDetail extends Component {
     render() {
         return (
             <div className='artwork-wrapper'>
-                <img src={this.state.url} alt={this.state.description}/>
-                <p>{this.state.description}</p>
+                <div className="header-wrapper">
+                    <h2>{this.state.title}</h2>
+                    <p>Posted on: {this.state.date}</p>
+                </div>
+
+                
+                    <div className="image-wrapper">
+                        <a href={this.state.url} target="_blank" rel="noreferrer">
+                            <img src={this.state.url} alt={this.state.description}/>
+                        </a>
+                    </div>
+
+                <div className="details-wrapper">
+                    <div className="available-media">
+                        <p className="medium">{this.state.medium}</p>
+
+                        {this.state.available === "available" ?
+                            <Link to="/contact">
+                                <p className={this.state.available}>{this.state.available} </p>
+                            </Link> :
+                            <p className={this.state.available}>{this.state.available}</p>
+                        }
+
+                    </div>
+                    <p>{this.state.description}</p>
+                </div>
             </div>
         )
     }

@@ -16,6 +16,11 @@
         a {
             text-decoration: none;
             color: white;
+            transition: .3s;
+
+            &:hover {
+                color: $orange;
+            }
         }
     }
 
@@ -39,6 +44,11 @@
             a {
                 color: #fff;
                 font-size: 2em;
+                transition: .3s;
+
+                &:hover {
+                    color: $orange;
+                }
             }
         }
     }

@@ -32,13 +32,11 @@ const useForm = (callback, validate) => {
     /* eslint-disable react-hooks/exhaustive-deps */
     useEffect( () => {
           if (Object.keys(errors).length === 0 && isSubmitting) {
-              console.log(emailSend.target)
 
               emailjs.sendForm('gmail', 'maudlin_template', emailSend.target, 'user_uuwkLmasO07PFD6K5Kupt')
           .then((result) => {
               console.log(result.text);
               setIsSubmitting(true);
-              console.log(isSubmitting)
               emailSend.target.reset()
           }, (error) => {
               console.log(error.text);

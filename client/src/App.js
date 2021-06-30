@@ -5,7 +5,7 @@ import Navbar from './components/pages/Navbar/Navbar'
 import About from './components/pages/About'
 import Contact from './components/pages/Contact'
 import Gallery from './components/pages/Gallery'
-import GalleryDetail from './components/pages/Gallery/GalleryDetail'
+import GalleryItem from './components/pages/Gallery/GalleryItem'
 import Auth from './components/pages/Auth'
 import Footer from './components/Footer'
 
@@ -22,7 +22,7 @@ export default class App extends Component {
             <Route path='/about' component={About}/>
             <Route path='/contact' component={Contact}/>
             <Route path='/auth' component={Auth}/>
-            <Route path='/g/:slug' component={GalleryDetail}/>
+            <Route path='/g/:slug' component={GalleryItem}/>
           </Switch>
 
           <Footer />
