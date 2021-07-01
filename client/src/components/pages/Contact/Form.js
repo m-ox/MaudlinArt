@@ -3,8 +3,12 @@ import React from 'react'
 import useForm from './useForm'
 import validate from './Validate'
 
-function Form({submitForm}) {
+function Form({submitForm, msg}) {
     const { handleChange, values, handleSubmit, errors } = useForm(submitForm, validate)
+
+    if (msg.length > 0) {
+        values.message = msg
+    }
 
     return (
         <>

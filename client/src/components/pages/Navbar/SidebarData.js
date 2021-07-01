@@ -13,5 +13,11 @@ export const SidebarData = [
         path: '/contact',
         icon: <Ai.AiFillMail />,
         cName: 'nav-text'
+    },
+    {
+        title: 'Gallery',
+        path: '/',
+        icon: <Ai.AiFillMail />,
+        cName: 'nav-text'
     }
 ];

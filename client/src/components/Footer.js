@@ -12,6 +12,9 @@ export default function Footer() {
                 <Link to="/contact">
                     Contact
                 </Link>
+                <Link to="/gallery">
+                    Gallery
+                </Link>
             </div>
             <div className="social-media-links">
                 <div className="social-link">

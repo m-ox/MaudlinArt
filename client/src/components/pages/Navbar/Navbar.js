@@ -16,17 +16,27 @@ function Navbar() {
         <>
         <IconContext.Provider value={{ color: '#fafafa'}}>
             <div className="navbar">
+
                 <div className="hamburger">
                     <Link to="#">
                         <Fa.FaBars onClick={showSidebar}/>
                     </Link>
                     <Link to ="/" className="name">
-                        <h2>Maudlin</h2>
+                        {/* <h2></h2> */}
                     </Link>
                 </div>
-                <img src={moth} alt="logo"/>
+
+                <h5>Maudlin Oxalis Studio</h5>
+
+                <Link to ="/">
+                    <img src={moth} alt="logo"/>
+                </Link>
+                
             </div>
-            <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+
+            <div className="the-centerer">
+                <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+
                 <div className='nav-menu-items' onClick={showSidebar}>
                     {SidebarData.map((item, idx) => {
                         return (
@@ -39,7 +49,9 @@ function Navbar() {
                         )
                     })}
                 </div>
-            </nav>
+
+                </nav>
+            </div>
         </IconContext.Provider>
         </>
     )

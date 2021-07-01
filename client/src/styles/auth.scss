@@ -43,6 +43,10 @@
             }
         }
 
+        #token {
+            font-size: .5rem;
+        }
+
         svg {
             font-size: 1.2em;
             color: $grey;
@@ -53,6 +57,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 1em;
 
         .success {
             background-color: #0db80d;
@@ -69,6 +74,7 @@
             background-color: $darkergrey;
             color: $offwhite;
             border: unset;
+            cursor: pointer;
         }
     }
 }

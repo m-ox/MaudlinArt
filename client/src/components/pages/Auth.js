@@ -63,6 +63,15 @@ export default class Login extends Component {
         })
     }
 
+    handleCopy() {
+        const tokenInput = document.querySelector("#token");
+        tokenInput.select();
+        document.execCommand("copy");
+        this.setState({
+            errormsg: 'Token copied'
+        })
+    }
+
 
     render() {
         return (
@@ -70,7 +79,7 @@ export default class Login extends Component {
 
                 <h1 style={{textAlign: 'center'}} > WELCOME </h1>
 
-                <p>Token issued with a successful login.</p>
+                <p>Get a token issued with a successful login.</p>
 
                 <div>{this.state.errorText}</div>
 
@@ -102,6 +111,7 @@ export default class Login extends Component {
                         <input
                             type="text"
                             name="text"
+                            id="token"
                             placeholder="Token"
                             value={this.state.token}
                             readOnly={true}
@@ -111,6 +121,9 @@ export default class Login extends Component {
                     <div className="btn-wrapper">
                         <button className={this.state.success}>
                             Login
+                        </button>
+                        <button className={this.state.success} onClick={() => this.handleCopy()}>
+                            Copy
                         </button>
                     </div>
 

@@ -17,7 +17,6 @@ export default class GalleryItem extends Component {
             medium: '',
             title: '',
             url: '',
-            available: '',
             slug: slug
         }
 
@@ -89,9 +88,14 @@ export default class GalleryItem extends Component {
                         <p className="medium">{this.state.medium}</p>
 
                         {this.state.available === "available" ?
-                            <Link to="/contact">
+                            <Link
+                                to={{
+                                    pathname: "/contact",
+                                    state: { msg: `Hello, I am interested in the ${this.state.title} painting.` }}}
+                                >
                                 <p className={this.state.available}>{this.state.available} </p>
-                            </Link> :
+                            </Link>
+                        :
                             <p className={this.state.available}>{this.state.available}</p>
                         }
 

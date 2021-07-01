@@ -1,10 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import Form from './Contact/Form'
 import FormSuccess from './Contact/FormSuccess'
 
-function Contact() {
+const Contact = () => {
     const [isSubmitted, setIsSubmitted] = useState(false)
+    const [isInterested, setIsInterested] = useState('')
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.state === undefined) {
+            console.log('no msg')
+        } else {
+            setIsInterested(location.state.msg)
+        }
+    // eslint-disable-next-line
+    }, [])
 
     function submitForm() {
         setIsSubmitted(true)
@@ -21,7 +33,7 @@ function Contact() {
 
                 <div className="contact-form">
                     {!isSubmitted ?
-                        (<Form submitForm={submitForm}/>) :
+                        (<Form submitForm={submitForm} msg={isInterested}/>) :
                         (<FormSuccess />)
                     }
                 </div>
