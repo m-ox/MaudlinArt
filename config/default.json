@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://maud:password1234@mernstack.sc1oa.mongodb.net/ArtistPortfolio?retryWrites=true&w=majority",
+    "jwtSecret": "futuresh0ck"
+}
