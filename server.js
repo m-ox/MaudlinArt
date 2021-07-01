@@ -1,7 +1,8 @@
 const express = require('express')
 const connectDB = require('./config/db');
-const cors = require('cors');
+const path = require('path');
 const cookieSession = require('cookie-session')
+const router = require('express').Router();
 
 
 const app = express()
@@ -18,6 +19,8 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
     next();
   });
+
+// Handling sameSite and cookies
   app.set('trust proxy', 1)
   app.use(
       cookieSession({
@@ -34,6 +37,16 @@ app.use(function(req, res, next) {
 app.use('/api/artwork', require('./api/artwork'))
 app.use('/api/users', require('./api/user'))
 app.use('/api/auth', require('./api/auth'))
+
+
+// serve static assets
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+// if nothing matches, return index
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
 
 app.get('/', (req, res) => res.send('Artwork API Running'))
 

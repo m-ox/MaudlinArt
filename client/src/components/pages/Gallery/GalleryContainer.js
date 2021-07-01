@@ -55,11 +55,9 @@ export default class GalleryContainer extends Component {
             loading: true
         })
         this.getGalleryItems()
-        setTimeout(() => {
-            this.setState({
-                loading: false
-            })
-        }, 1000)
+        this.setState({
+            loading: false
+        })
     }
 
     render() {
