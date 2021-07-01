@@ -1,4 +1,5 @@
 const express = require('express')
+const config = require("dotenv").config() // to securely configure JWT secret
 const connectDB = require('./config/db');
 const path = require('path');
 const cookieSession = require('cookie-session')
