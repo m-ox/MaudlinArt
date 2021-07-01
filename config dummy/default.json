@@ -1,0 +1,4 @@
+{
+    "mongoURI": "MONGO DB URI GOES HERE",
+    "jwtSecret": "SECRET GOES HERE"
+}
