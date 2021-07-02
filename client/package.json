@@ -1,6 +1,7 @@
 {
   "name": "fullstack-demo",
   "version": "0.1.0",
+  "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
@@ -14,7 +15,6 @@
     "jsonify": "0.0.0",
     "magic.css": "^1.4.6",
     "node-sass": "^6.0.0",
-    "proxy": "http://localhost:5000",
     "react": "^17.0.2",
     "react-datepicker": "^4.1.1",
     "react-dom": "^17.0.2",
