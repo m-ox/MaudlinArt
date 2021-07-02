@@ -7,10 +7,10 @@ export default class GalleryItem extends Component {
         super(props)
 
         const pathname = this.props.location.pathname
-        console.log(pathname)
+        const slug = pathname.slice(3);
 
-        const slugChunk = pathname.slice(3);
-        console.log(slugChunk)
+        console.log('pathname:', pathname)
+        console.log('slug:', slug)
 
         this.state = {
             _id: '',
@@ -20,10 +20,8 @@ export default class GalleryItem extends Component {
             medium: '',
             title: '',
             url: '',
-            slug: slugChunk
+            slug: slug
         }
-
-        this.state.slug
 
         this.formatDate = this.formatDate.bind(this)
     
@@ -37,7 +35,7 @@ export default class GalleryItem extends Component {
 
     getGalleryItem = () => {
         axios
-            .get(`https://maudlin-artist-portfolio.herokuapp.com/${this.state.slug}`)
+            .get(`http://localhost:5000/api/artwork/${this.state.slug}`)
             .then(res => {
                 const {
                     _id,
