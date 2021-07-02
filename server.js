@@ -7,7 +7,6 @@ const router = require('express').Router();
 
 
 const app = express()
-const { check, validationResult } = require("express-validator");
 
 // Connect Database
 connectDB();

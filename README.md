@@ -12,7 +12,7 @@ Backend features:
       * get one, get all, post, patch, and delete routes for artwork
 * Express validator on user sign up and new artwork
 * salted password encryption
-* express hosting the client files
+* Express hosting the client files
 
 Frontend features:
 * simple modular navigation bar
@@ -23,31 +23,11 @@ Frontend features:
   * EmailJS will forward the completed form information; see more information below regarding setting up EmailJS
   * Form validation to ensure all portions of the form are complete and sensibly filled out
 * simple about page with a "featured in" link section
-* very simple auth page that spits out a token to manage artwork data in Postman
+* very simple auth page that spits out a token to manage artwork data in Postman (separate artwork management app planned for development)
 
-## Installation
+## Authentication
 
-Assuming you already have Node JS installed, you will have to install the node modules for the client and server individually with the following command in their respective folders:
-
-```
-npm i
-```
-
-## Usage
-
-While in the root folder, run npm build and spin up the server with simply:
-
-```
-npm run start
-```
-
-## Authenticationr
-
-Permission to create, update, or delete artwork related to the project as is is currently restricted to my own personal discretion and usage. If you want to use this project for yourself, you will have to make your own MongoDB account, cluster, and update the configuration files and axios calls. Currently these actions are facilitated by Postman. I plan to create a separate project for managing artwork.
-
-## Configuration
-
-I have omitted my own config file for security reasons but I have created a dummy config folder that includes a little backend mongoosey middleware and where ideally you'd have a mongoDB URI and JWTsecret for the backend to work. To run this project, you will have to set up the default.json file with a MongoDB uri, JWTsecret and then rename the 'config_dummy' folder to 'config'.
+Permission to create, update, or delete artwork related to the project as is is currently restricted to my own personal discretion and usage.
 
 ## EmailJS
 
