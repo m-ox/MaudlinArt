@@ -9,6 +9,8 @@ export default class GalleryItem extends Component {
         const pathname = this.props.location.pathname
         const slug = pathname.slice(3);
 
+        console.log(pathname)
+
         this.state = {
             _id: '',
             available: '',
