@@ -32,7 +32,7 @@ export default class GalleryItem extends Component {
 
     getGalleryItem = () => {
         axios
-            .get(`http://localhost:5000/api/artwork/${this.state.slug}`)
+            .get(`https://maudlin-artist-portfolio.herokuapp.com/${this.state.slug}`)
             .then(res => {
                 const {
                     _id,

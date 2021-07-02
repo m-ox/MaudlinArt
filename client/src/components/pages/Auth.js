@@ -32,7 +32,7 @@ export default class Login extends Component {
                 }
             }
             const body = JSON.stringify(loggingIn)
-            const res = await axios.post('http://localhost:5000/api/auth', body, config)
+            const res = await axios.post('https://maudlin-artist-portfolio.herokuapp.com/api/auth', body, config)
 
             console.log('Login success', res)
 

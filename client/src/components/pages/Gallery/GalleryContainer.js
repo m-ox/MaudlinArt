@@ -17,7 +17,7 @@ export default class GalleryContainer extends Component {
 
     getGalleryItems = () => {
         axios
-            .get("http://localhost:5000/api/artwork")
+            .get("https://maudlin-artist-portfolio.herokuapp.com/api/artwork")
             .then(res => {
                 this.setState({
                     galleryData: res.data
