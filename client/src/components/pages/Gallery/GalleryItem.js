@@ -7,9 +7,10 @@ export default class GalleryItem extends Component {
         super(props)
 
         const pathname = this.props.location.pathname
-        const slug = pathname.slice(3);
-
         console.log(pathname)
+
+        const slugChunk = pathname.slice(3);
+        console.log(slug)
 
         this.state = {
             _id: '',
@@ -19,8 +20,10 @@ export default class GalleryItem extends Component {
             medium: '',
             title: '',
             url: '',
-            slug: slug
+            slug: slugChunk
         }
+
+        this.state.slug
 
         this.formatDate = this.formatDate.bind(this)
     
