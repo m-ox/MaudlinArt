@@ -12,6 +12,11 @@ function Form({submitForm, msg}) {
 
     return (
         <>
+        <div className="hero-section">
+            <span className="smol">Don't be a stranger</span>
+            <h4 className="beeg">Contact Me</h4>
+        </div>
+
         <h2>If you are interested in an available piece or would like to discuss a showing, please get in touch with me here!</h2>
         <form className={`contact-form ${errors.class}`} onSubmit={handleSubmit}>
         

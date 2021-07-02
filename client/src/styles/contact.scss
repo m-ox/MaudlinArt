@@ -24,22 +24,6 @@
         background: #000000d1;
         color: #fff;
 
-        .hero-section {
-            display: grid;
-            grid-template-columns: 1fr;
-            margin-bottom: 1rem;
-            text-align-last: center;
-            font-size: 2em;
-
-            .smol {
-                font-size: 1rem;
-            }
-            .beeg {
-                font-size: 2em;
-                text-align: center;
-            }
-        }
-
         .contact-form {
             display: flex;
             flex-direction: column;
@@ -49,6 +33,22 @@
             text-align: center;
             font-size: 2em;
             padding: 0;
+
+            .hero-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            margin-bottom: 1rem;
+            text-align-last: center;
+            font-size: 1em;
+
+            .smol {
+                font-size: 1rem;
+            }
+            .beeg {
+                font-size: 2em;
+                text-align: center;
+            }
+        }
 
             form {
                 font-size: 2ch;
@@ -137,17 +137,19 @@
         .contact-container {
             margin-top: 4em;
 
-            .hero-section {
-                display: flex;
-                align-items: baseline;
-                gap: .5em;
-
-                .smol {
-                    font-size: .8rem;
-                }
-
-                .beeg {
-                    font-size: 2rem;
+            .contact-form {
+                .hero-section {
+                    display: flex;
+                    align-items: baseline;
+                    gap: .5em;
+    
+                    .smol {
+                        font-size: .8rem;
+                    }
+    
+                    .beeg {
+                        font-size: 2rem;
+                    }
                 }
             }
 

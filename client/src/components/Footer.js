@@ -12,7 +12,7 @@ export default function Footer() {
                 <Link to="/contact">
                     Contact
                 </Link>
-                <Link to="/gallery">
+                <Link to="/">
                     Gallery
                 </Link>
             </div>

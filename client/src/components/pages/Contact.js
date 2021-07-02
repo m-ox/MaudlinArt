@@ -26,10 +26,6 @@ const Contact = () => {
         <div className="contact">
 
             <div className="contact-container">
-                <div className="hero-section">
-                    <span className="smol">Don't be a stranger</span>
-                    <h4 className="beeg">Contact Me</h4>
-                </div>
 
                 <div className="contact-form">
                     {!isSubmitted ?
