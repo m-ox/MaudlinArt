@@ -10,15 +10,17 @@
 
     h1 {
         text-align: center;
-        background-color: #ff2d2dc7;
+        background-color: #ff0000;
         border-radius: 15px;
         padding: 5px 10px;
-        color: #fff;
+        color: $offwhite;
     }
 
     p {
-        font-size: .8em;
+        font-size: 1em;
         margin-top: 5px;
+        mix-blend-mode: difference;
+        color: #fff;
     }
 
     .form-group {
@@ -82,5 +84,5 @@
 #errormsg {
     text-align: center;
     font-size: 1.2em;
-    color: #f00;
+    color: #ff0000;
 }
