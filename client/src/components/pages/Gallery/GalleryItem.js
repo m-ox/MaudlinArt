@@ -10,7 +10,7 @@ export default class GalleryItem extends Component {
         console.log(pathname)
 
         const slugChunk = pathname.slice(3);
-        console.log(slug)
+        console.log(slugChunk)
 
         this.state = {
             _id: '',
