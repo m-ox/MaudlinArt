@@ -27,7 +27,7 @@ const Contact = () => {
 
             <div className="contact-container">
 
-                <div className="contact-form">
+                <div onMouse className="contact-form">
                     {!isSubmitted ?
                         (<Form submitForm={submitForm} msg={isInterested}/>) :
                         (<FormSuccess />)

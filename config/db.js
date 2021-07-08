@@ -11,12 +11,11 @@ const connectDB = async () => {
             useFindAndModify: false
         })
 
-        mongoose.set('useFindAndModify', false);
-
         console.log('MongoDB Connected...')
+
     } catch(err) {
         console.error('MongoDB Connection Error:', error)
-        // exit process with failure
+        
         process.exit(1)
     }
 }
