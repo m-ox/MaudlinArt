@@ -9,7 +9,9 @@ export default class GalleryContainer extends Component {
 
         this.state = {
             galleryData: [],
-            loading: false
+            limited: [],
+            loading: false,
+            page: 1
         }
 
         this.getGalleryItems = this.getGalleryItems.bind()
@@ -17,12 +19,22 @@ export default class GalleryContainer extends Component {
 
     getGalleryItems = () => {
         axios
-            .get("https://maudlin-artist-portfolio.herokuapp.com/api/artwork")
+            .get(`https://maudlin-artist-portfolio.herokuapp.com/api/artwork/page/${this.state.page}`)
             .then(res => {
                 this.setState({
                     galleryData: res.data
                 })
             })
+
+            // TO DO: GRAB A PAGE
+            // .get("https://maudlin-artist-portfolio.herokuapp.com/api/artwork/page/1")
+            // .then(res => {
+            //     this.setState({
+            //         galleryData: res.data
+            //     })
+            //     console.log('Here is our page:', this.state.galleryData)
+            // })
+
             .catch(error => {
                 console.log("There was an error retrieving the gallery items", error);
               })

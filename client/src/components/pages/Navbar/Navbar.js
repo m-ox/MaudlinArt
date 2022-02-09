@@ -15,7 +15,7 @@ function Navbar() {
     return (
         <>
         <IconContext.Provider value={{ color: '#fafafa'}}>
-            <div touch className="navbar">
+            <div touch="true" className="navbar">
 
                 <div className="hamburger">
                     <Link to="#">

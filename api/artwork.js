@@ -23,6 +23,19 @@ router.get('/', async (req, res) => {
     }
 )
 
+// GET /page/:page
+// get a page of artwork
+router.get('/page/:pageid', async (req, res) => {
+    try {
+        const liminal = await Artwork.find().skip(req.params.pageid * 6 - 6 ).limit(6)
+
+        res.json(liminal)
+    } catch {
+        console.error(err.message)
+        res.status(500).send('Cound not retrieve page of artwork')
+    }
+})
+
 // GET /:id
 // get an individual artwork
 router.get('/:id', async (req, res) => {
