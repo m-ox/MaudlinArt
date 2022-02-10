@@ -1,8 +1,7 @@
 import React, { Component, useState, useEffect, useRef } from 'react'
 import axios from 'axios'
-import useAxios from 'axios-hooks'
 import { Link } from 'react-router-dom'
-import ClipLoader from 'react-spinners/ClipLoader'
+import Loader from 'react-spinners/ClipLoader'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
 const slinky = "http://localhost:5000/api/"
@@ -12,7 +11,7 @@ export default function GalleryContainer() {
 
     const page = useRef(1)
     const [galleryData, setGalleryData] = useState([])
-    const [loading, setLoading] = useState(false)
+    const [hasMore, setHasMore] = useState(true)
 
     useEffect(() => {
         getPage()
@@ -24,6 +23,11 @@ export default function GalleryContainer() {
         .get(`${slinky}artwork/page/${page.current}`)
         .then(res => {
             console.log('this is the response:', res, typeof res)
+            if (res.data.length < 6) {
+                setTimeout(() => {
+                    setHasMore(false)
+                }, 1000)
+            }
             setGalleryData(
                 galleryData.concat(res.data)
             )
@@ -50,8 +54,21 @@ export default function GalleryContainer() {
             <InfiniteScroll
                 dataLength={galleryData.length}
                 next={() => nextPage()}
-                hasMore={true}
-                loader={<h3>Loading...</h3>}
+                hasMore={hasMore}
+                loader={
+                    <div className="gallery-item">
+                        <Loader small={true} color='white' className="myLoader" />
+                    </div>
+                }
+                endMessage={
+                    
+                    <div className="gallery-item thasit">
+                        <h2>Look's like that is it...</h2>
+                        <a href="https://www.instagram.com/maudlinarts">
+                            <p>Check out my Instagram!</p>
+                        </a>
+                    </div>
+                }
             >
 
                 {galleryData.map(artwork => {
