@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react'
+import React, { Component, useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import useAxios from 'axios-hooks'
 import { Link } from 'react-router-dom'
@@ -10,24 +10,29 @@ const slinky = "http://localhost:5000/api/"
 
 export default function GalleryContainer() {
 
-        const [page, setPage] = useState(1)
-        const [galleryData, setGalleryData] = useState([])
-        const [loading, setLoading] = useState(false)
+    const page = useRef(1)
+    const [galleryData, setGalleryData] = useState([])
+    const [loading, setLoading] = useState(false)
 
-        useEffect(() => {
-            axios
-            .get(`${slinky}artwork/page/${page}`)
-            .then(res => {
-                console.log('this is the response:', res, typeof res)
-                setGalleryData(
-                    res.data
-                )
+    useEffect(() => {
+        getPage()
+    }, [])
+
+    function getPage() {
+        console.log("I am getting the page:", page.current)
+        axios
+        .get(`${slinky}artwork/page/${page.current}`)
+        .then(res => {
+            console.log('this is the response:', res, typeof res)
+            setGalleryData(
+                galleryData.concat(res.data)
+            )
+        })
+    
+        .catch(error => {
+            console.log("There was an error retrieving the gallery items...", error);
             })
-        
-            .catch(error => {
-                console.log("There was an error retrieving the gallery items...", error);
-              })
-        }, [])
+    }
 
 
     // function fetchGalleryItems() {
@@ -59,15 +64,24 @@ export default function GalleryContainer() {
     //           })
     // }
 
+    function nextPage() {
+
+        page.current = page.current + 1
+        setTimeout(() => {
+            getPage()
+        }, 1000)
+
+    }
+
     function galleryItems() {
-        
-        console.log('the gallery data:', galleryData, typeof galleryData)
 
         return (
 
             <InfiniteScroll
-                dataLength={0}
-                next={() => setPage(page + 1)}
+                dataLength={galleryData.length}
+                next={() => nextPage()}
+                hasMore={true}
+                loader={<h3>Loading...</h3>}
             >
 
                 {galleryData.map(artwork => {
