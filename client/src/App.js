@@ -13,27 +13,25 @@ export default class App extends Component {
 
   render() {
 
-    if (document.body.scrollTop > 0) {
-      console.log('bottom')
-    }
-
       return (
-        <>
-        <Router>
-          <Navbar />
+        <div className="container">
 
-          <Switch>
-            <Route exact path='/' component={Gallery}/>
-            <Route path='/about' component={About}/>
-            <Route path='/contact' component={Contact}/>
-            <Route path='/auth' component={Auth}/>
-            <Route path='/g/:slug' component={GalleryItem}/>
-          </Switch>
+          <Router>
 
-          <Footer />
-          
-        </Router>
-        </>
+            <Navbar />
+
+            <Switch>
+              <Route exact path='/' component={Gallery}/>
+              <Route path='/about' component={About}/>
+              <Route path='/contact' component={Contact}/>
+              <Route path='/auth' component={Auth}/>
+              <Route path='/g/:slug' component={GalleryItem}/>
+            </Switch>
+
+            <Footer />
+            
+          </Router>
+        </div>
       )
   }
 }

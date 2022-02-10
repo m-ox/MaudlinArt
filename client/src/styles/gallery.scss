@@ -8,6 +8,8 @@
     justify-content: center;
     min-height: 10em;
     background-color: #1e2123;
+    // max-height: 90vh;
+    // overflow-y: scroll;
 
     .welcome-wrapper {
         width: auto;
@@ -31,7 +33,7 @@
             img {
                 width: 100%;
                 height: inherit;
-                background-color: rgba(152, 192, 216, 0.069);
+                background-color: rgba(63, 105, 131, 0.069);
                 content-visibility: auto;
                 border-radius: .5em;
                 transition: .2s;
