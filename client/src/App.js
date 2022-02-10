@@ -12,6 +12,11 @@ import Footer from './components/Footer'
 export default class App extends Component {
 
   render() {
+
+    if (document.body.scrollTop > 0) {
+      console.log('bottom')
+    }
+
       return (
         <>
         <Router>

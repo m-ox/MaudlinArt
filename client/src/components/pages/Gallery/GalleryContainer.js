@@ -3,6 +3,9 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import ClipLoader from 'react-spinners/ClipLoader'
 
+const slinky = "http://localhost:5000/api/"
+const linky = "https://maudlin-artist-portfolio.herokuapp.com/api/"
+
 export default class GalleryContainer extends Component {
     constructor() {
         super()
@@ -19,21 +22,12 @@ export default class GalleryContainer extends Component {
 
     getGalleryItems = () => {
         axios
-            .get(`https://maudlin-artist-portfolio.herokuapp.com/api/artwork/page/${this.state.page}`)
+            .get(`${slinky}artwork/page/${this.state.page}`)
             .then(res => {
                 this.setState({
                     galleryData: res.data
                 })
             })
-
-            // TO DO: GRAB A PAGE
-            // .get("https://maudlin-artist-portfolio.herokuapp.com/api/artwork/page/1")
-            // .then(res => {
-            //     this.setState({
-            //         galleryData: res.data
-            //     })
-            //     console.log('Here is our page:', this.state.galleryData)
-            // })
 
             .catch(error => {
                 console.log("There was an error retrieving the gallery items", error);

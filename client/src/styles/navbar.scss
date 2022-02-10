@@ -1,11 +1,11 @@
 .navbar {
-    width: auto;
+    width: -webkit-fill-available;
     display: flex;
     height: 5rem;
     justify-content: space-between;
     background: $darkergrey;
     z-index: 2;
-    position: relative;
+    position: fixed;
 
     .hamburger {
         color: $offwhite;
@@ -64,7 +64,7 @@
         z-index: 1;
     
         &.active {
-            transform: translateX(0%);
+            transform: translateY(125%);
             padding: 15px 0;
             transition: 500ms;
             background: #000000ae;
