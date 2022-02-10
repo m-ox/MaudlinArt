@@ -32,28 +32,36 @@
                 grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
                 justify-items: start;
                 gap: 1em;
-                  
-                & > div:nth-child(3n) {
-                justify-self: stretch;
-                text-align: right;
-                }
-                
-                & > div:nth-child(3n-1):nth-last-of-type(1) {
-                grid-column: span 2;
-                width: -webkit-fill-available;
-                }
-                
-                & > div:nth-child(3n-2):nth-last-of-type(1) {
-                grid-column: span 3;
-                width: -webkit-fill-available;
+
+                @keyframes fadeIn {
+                    from {opacity: 0%}
+                    to {opacity: 100%}
                 }
 
                 .thasit {
-                    border-radius: 0.5em;
+                    background-color: $purple;
+                    border-radius: 0.5em 20em;
                     flex-direction: column;
+                    place-self: stretch;
+                    animation: fadeIn 1.5s 1 ease-out;
+                    transition: .5s;
+
+                    a {
+                        transition: 0.5s;
+                    }
 
                     h2 {
                         font-family: 'Rock Salt', cursive;
+                    }
+
+                    p {
+                        font-size: smaller;
+
+                        svg {
+                            margin: 0 5px;
+                            font-size: 1.5em;
+                            vertical-align: middle;
+                        }
                     }
                 }
 
@@ -70,7 +78,8 @@
                     img {
                         width: 100%;
                         height: inherit;
-                        background-color: rgba(63, 105, 131, 0.069);
+                        background-color: $darkergrey;
+                        
                         content-visibility: auto;
                         border-radius: .5em;
                         transition: .2s;
@@ -85,6 +94,44 @@
                     }
                 }
             }
+        }
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .gallery-grid {
+        div {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
+            justify-items: start;
+            gap: 1em;
+              
+            & > div:nth-child(3n) {
+            justify-self: stretch;
+            text-align: right;
+            }
+            
+            & > div:nth-child(3n-1):nth-last-of-type(1) {
+            grid-column: span 2;
+            width: -webkit-fill-available;
+            }
+            
+            & > div:nth-child(3n-2):nth-last-of-type(1) {
+            grid-column: span 3;
+            width: -webkit-fill-available;
+            }
+
+            .thatsit {
+                font-size: xx-large;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 480px) {
+    .gallery-grid {
+        div {
+            place-self: center;
         }
     }
 }

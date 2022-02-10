@@ -1,8 +1,11 @@
-import React, { Component, useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+
 import Loader from 'react-spinners/ClipLoader'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import Fade from 'react-reveal/Fade'
+import {BsBoxArrowRight} from 'react-icons/bs'
 
 const slinky = "http://localhost:5000/api/"
 //const linky = "https://maudlin-artist-portfolio.herokuapp.com/api/"
@@ -63,9 +66,9 @@ export default function GalleryContainer() {
                 endMessage={
                     
                     <div className="gallery-item thasit">
-                        <h2>Look's like that is it...</h2>
+                        <h2>You've reached the end...</h2>
                         <a href="https://www.instagram.com/maudlinarts">
-                            <p>Check out my Instagram!</p>
+                            <p> Maybe there is more on Instagram? <BsBoxArrowRight/> </p> 
                         </a>
                     </div>
                 }
@@ -82,8 +85,10 @@ export default function GalleryContainer() {
                         pathname: `/g/${_id}`,
                         artwork: artwork
                     }}>
-                        <div className="gallery-item">
-                            <img src={artwork.url} alt={`${artwork.title} painting`}/>
+                        <div className="gallery-item"                        >
+                            <Fade>
+                                <img src={artwork.url} alt={`${artwork.title} painting`}/>
+                            </Fade>
                         </div>
                     </Link>
                 )
