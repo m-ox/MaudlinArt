@@ -23,7 +23,7 @@ export default function GalleryContainer() {
     function getPage() {
         //console.log("I am getting the page:", page.current)
         axios
-        .get(`${slinky}artwork/page/${page.current}`)
+        .get(`${linky}artwork/page/${page.current}`)
         .then(res => {
             //console.log('this is the response:', res, typeof res)
             if (res.data.length < 6) {
