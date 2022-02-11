@@ -57,6 +57,7 @@
         align-items: center;
         text-align-last: center;
         color: $darkergrey;
+        padding: 0;
     
         transition: 1s;
         position: absolute;
@@ -65,7 +66,7 @@
     
         &.active {
             transform: translateY(125%);
-            padding: 15px 0;
+            padding: 20px 0;
             transition: 500ms;
             background: #000000ae;
             position: absolute;
