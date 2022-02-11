@@ -8,6 +8,7 @@
     justify-content: center;
     min-height: 10em;
     background-color: #1e2123;
+    overflow: hidden;
 
     .welcome-wrapper {
         width: auto;
@@ -32,6 +33,10 @@
                 grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
                 justify-items: start;
                 gap: 1em;
+
+                height: auto;
+                overflow: hidden;
+                width: 100%;
 
                 @keyframes fadeIn {
                     from {opacity: 0%}
