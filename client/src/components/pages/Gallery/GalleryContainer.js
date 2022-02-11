@@ -7,7 +7,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import Fade from 'react-reveal/Fade'
 import {BsBoxArrowRight} from 'react-icons/bs'
 
-const slinky = "http://localhost:5000/api/"
+//const slinky = "http://localhost:5000/api/"
 const linky = "https://maudlin-artist-portfolio.herokuapp.com/api/"
 
 export default function GalleryContainer() {
@@ -21,11 +21,11 @@ export default function GalleryContainer() {
     }, [])
 
     function getPage() {
-        console.log("I am getting the page:", page.current)
+        //console.log("I am getting the page:", page.current)
         axios
         .get(`${linky}artwork/page/${page.current}`)
         .then(res => {
-            console.log('this is the response:', res, typeof res)
+            //console.log('this is the response:', res, typeof res)
             if (res.data.length < 6) {
                 setTimeout(() => {
                     setHasMore(false)
