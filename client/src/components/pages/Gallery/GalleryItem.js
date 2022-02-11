@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { Helmet } from 'react-helmet'
 
 export default class GalleryItem extends Component {
     constructor(props) {
@@ -73,6 +74,32 @@ export default class GalleryItem extends Component {
 
     render() {
         return (
+            <>
+            <Helmet>
+                {/* HTML META TAGS */}
+                <title>{this.state.title}</title>
+                <meta name="description" content={this.state.description} />
+
+                {/* GOOGLE/ SEARCH ENGINE */}
+                <meta itemprop="name" content={this.state.title}/>
+                <meta itemprop="description" content={this.state.description}/>
+                <meta itemprop="image" content={this.state.url}/>
+
+                {/* FB */}
+                <meta property="og:url" content="https://maudlin-artist-portfolio.herokuapp.com/"/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:title" content={this.state.title}/>
+                <meta property="og:description" content={this.state.description}/>
+                <meta property="og:image" content={this.state.url}/>
+
+                {/* TWITTER  */}
+                <meta name="twitter:card" content="summary_large_image"/>
+                <meta name="twitter:title" content={this.state.title}/>
+                <meta name="twitter:description" content={this.state.description}/>
+                <meta name="twitter:image" content={this.state.url} />
+
+            </Helmet>
+            
             <div className='artwork-wrapper'>
                 <div className="header-wrapper">
                     <h2>{this.state.title}</h2>
@@ -106,6 +133,8 @@ export default class GalleryItem extends Component {
                     <p>{this.state.description}</p>
                 </div>
             </div>
+
+            </>
         )
     }
 }

@@ -24,9 +24,8 @@ export default function Footer() {
                 </div>
             </div>
             <div className="legal-stuff">
-                <p>All rights reserved | Site by Maudlin Oxalis</p>
                 <p>All artwork included on this website is created, owned, and sold exclusively by the artist</p>
-                <p>&copy; Maudlin Oxalis 2021</p>
+                <p>&copy; Maudlin Oxalis 2022</p>
             </div>
           </div>
     )
