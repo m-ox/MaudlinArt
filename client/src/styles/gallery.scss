@@ -45,6 +45,7 @@
                     place-self: stretch;
                     animation: fadeIn 1.5s 1 ease-out;
                     transition: 1s ease-out;
+                    padding: 20px;
 
                     a {
                         transition: 1s ease-out;
@@ -52,6 +53,7 @@
 
                     h2 {
                         font-family: 'Rock Salt', cursive;
+                        font-size: inherit;
                     }
 
                     p {
@@ -121,8 +123,10 @@
             width: -webkit-fill-available;
             }
 
-            .thatsit {
-                font-size: xx-large;
+            div {
+                .thasit {
+                    font-size: xx-large;
+                }
             }
         }
     }
