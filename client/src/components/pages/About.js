@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Fade from 'react-reveal/Fade'
 
 import me from "../../images/me.png"
 
 function About() {
+
+    useEffect( () => {
+        window.scrollTo(0, 0)
+    }, [] )
+
     return (
         <div className="about">
 

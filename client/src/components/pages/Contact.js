@@ -10,6 +10,7 @@ const Contact = () => {
     const location = useLocation();
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         if (location.state === undefined) {
             console.log('no msg')
         } else {

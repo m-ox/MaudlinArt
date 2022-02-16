@@ -22,7 +22,12 @@ export default function GalleryContainer() {
     [])
 
     function getPage() {
-        //console.log("I am getting the page:", page.current)
+        
+        if (page.current > 1) {
+            page.current = 1
+        }
+
+        console.log("I am getting the page:", page.current)
         axios
         .get(`${linky}artwork/page/${page.current}`)
         .then(res => {
