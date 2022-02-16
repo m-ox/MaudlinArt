@@ -6,9 +6,7 @@ function Gallery() {
     return (
         <div className="gallery">
 
-                <GalleryContainer
-                    // onScroll={console.log('scrolly')}
-                 />
+                <GalleryContainer/>
         </div>
     )
 }

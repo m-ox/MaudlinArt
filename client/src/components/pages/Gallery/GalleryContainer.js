@@ -7,7 +7,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import Fade from 'react-reveal/Fade'
 import {BsBoxArrowRight} from 'react-icons/bs'
 
-const slinky = "http://localhost:5000/api/"
+//const slinky = "http://localhost:5000/api/"
 const linky = "https://maudlin-artist-portfolio.herokuapp.com/api/"
 
 export default function GalleryContainer() {

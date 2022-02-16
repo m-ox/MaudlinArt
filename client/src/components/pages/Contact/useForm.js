@@ -28,8 +28,6 @@ const useForm = (callback, validate) => {
         setEmailSending(e)
     }
 
-    //I'm doing a no no but the internet says this is one of the few times this warning isn't neccessary
-    /* eslint-disable react-hooks/exhaustive-deps */
     useEffect( () => {
           if (Object.keys(errors).length === 0 && isSubmitting) {
 
