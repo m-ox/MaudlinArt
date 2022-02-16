@@ -106,7 +106,7 @@ export default function GalleryContainer() {
 
     return (
         <>
-                <div className="gallery-grid">
+                <div className="gallery-grid" >
                     {galleryItems()}
                 </div>
         </>
