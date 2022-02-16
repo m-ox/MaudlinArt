@@ -12,7 +12,7 @@ const Contact = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
         if (location.state === undefined) {
-            console.log('no msg')
+            //console.log('no msg')
         } else {
             setIsInterested(location.state.msg)
         }

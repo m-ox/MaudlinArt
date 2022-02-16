@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
@@ -17,26 +17,47 @@ export default function GalleryContainer() {
     const [hasMore, setHasMore] = useState(true)
 
     useEffect(
-        () => { getPage() },
+        () => { init() },
         //eslint-disable-next-line
     [])
 
-    function getPage() {
-        
-        if (page.current > 1) {
+    useLayoutEffect(() => {
+        return () => {
             page.current = 1
         }
+    }, [])
+
+    function init() {
+        window.scrollTo(0, 0)
+        getPage()
+    }
+
+    async function getPage() {
+
+        console.log("this is my galleryData:", galleryData)
+
+        // HAVING THIS HERE PROVES MY ASYNC IS OFF
+        // if (galleryData) {
+        //     setTimeout(() => {
+        //         console.log('timer')
+        //     }, 500);
+        // }
 
         console.log("I am getting the page:", page.current)
-        axios
+
+        await axios
         .get(`${linky}artwork/page/${page.current}`)
         .then(res => {
-            //console.log('this is the response:', res, typeof res)
+
+            console.log('this is the response:', res, typeof res)
+
+            // THIS IS HOW THE LOADING TURNS INTO AN END MESSAGE -- WE NEED IT
             if (res.data.length < 6) {
                 setTimeout(() => {
                     setHasMore(false)
                 }, 1000)
             }
+
             setGalleryData(
                 galleryData.concat(res.data)
             )
