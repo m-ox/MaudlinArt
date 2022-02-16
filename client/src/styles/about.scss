@@ -106,9 +106,34 @@
 }
 
 @media only screen and (max-width: 767px) {
-    .about .content-wrapper {
-        font-size: 1rem;
-        margin: 1em;
+    .about {
+        margin-top: 60px;
+
+        .picofme {
+            max-width: 100vw;
+            place-self: center;
+
+            img {
+                max-width: 100vw;
+                width: 100%;
+                padding-top: 20px;
+            }
+        }
+
+        .content-wrapper {
+            font-size: 1rem;
+            margin: 0;
+            max-width: 100vw;
+            padding: 0.5em;
+
+            .featured-works {
+                h2 {
+                    text-align: center;
+                    font-size: large;
+                }
+            }
+        }
     }
+
 }
 

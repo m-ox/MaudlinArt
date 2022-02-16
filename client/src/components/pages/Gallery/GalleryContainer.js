@@ -16,9 +16,10 @@ export default function GalleryContainer() {
     const [galleryData, setGalleryData] = useState([])
     const [hasMore, setHasMore] = useState(true)
 
-    useEffect(() => {
-        getPage()
-    }, [])
+    useEffect(
+        () => { getPage() },
+        //eslint-disable-next-line
+    [])
 
     function getPage() {
         //console.log("I am getting the page:", page.current)

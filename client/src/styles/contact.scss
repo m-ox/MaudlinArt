@@ -132,7 +132,7 @@
 @media only screen and (max-width: 767px) {
 
     .contact {
-        min-height: 80ch;
+        min-height: 90ch;
 
         .contact-container {
             margin-top: 4em;
@@ -140,6 +140,7 @@
             .contact-form {
                 .hero-section {
                     display: flex;
+                    flex-direction: column;
                     align-items: baseline;
                     gap: .5em;
     

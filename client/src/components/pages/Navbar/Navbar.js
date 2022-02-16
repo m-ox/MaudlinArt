@@ -29,7 +29,7 @@ function Navbar() {
                 <h5>Maudlin Oxalis Studio</h5>
 
                 <Link to ="/">
-                    <img src={moth} alt="logo"/>
+                    <img src={moth} alt="logo" onClick={() => setSidebar(false)}/>
                 </Link>
                 
             </div>

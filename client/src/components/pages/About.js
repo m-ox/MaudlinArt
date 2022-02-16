@@ -1,4 +1,5 @@
 import React from 'react'
+import Fade from 'react-reveal/Fade'
 
 import me from "../../images/me.png"
 
@@ -7,7 +8,9 @@ function About() {
         <div className="about">
 
             <div className="picofme">
-                <img src={me} alt="maud"/>
+                <Fade>
+                    <img src={me} alt="maud"/>
+                </Fade>
             </div>
 
             <div className="content-wrapper">

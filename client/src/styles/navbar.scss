@@ -60,16 +60,16 @@
         padding: 0;
     
         transition: 1s;
-        position: absolute;
+        position: fixed;
         transform: translateY(-100%);
         z-index: 1;
     
         &.active {
             transform: translateY(125%);
-            padding: 20px 0;
+            padding: 18px 0;
             transition: 500ms;
             background: #000000ae;
-            position: absolute;
+            position: fixed;
             border-radius: 0 0 20px 20px;
         }
     
@@ -108,10 +108,48 @@
         // max-width: 100vw;
     }
 
+    .container {
+        max-width: 100vw;
+
+        .navbar {
+            width: 100vw;
+            padding: 0px 0.5em;
+            align-items: center;
+    
+            .hamburger {
+                font-size: x-small;
+                padding: .5em;
+    
+                a {
+                    svg {
+                        font-size: 1.5rem;
+                    }
+                }
+    
+                h5 {
+                    font-size: .8rem;
+                }
+            }
+    
+            a {
+                img {
+                    height: 2em;
+                }
+            }
+        }
+    }
+
     .the-centerer {
         display: flex;
         width: auto;
         place-content: center;
+        margin-top: 0;
+
+        .nav-menu {
+            &.active {
+                position: fixed;
+            }
+        }
     }
 }
 
