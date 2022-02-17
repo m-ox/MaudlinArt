@@ -16,64 +16,118 @@ export default function GalleryContainer() {
     const [galleryData, setGalleryData] = useState([])
     const [hasMore, setHasMore] = useState(true)
 
+    // COMPONENT MOUNTED
     useEffect(
         () => { init() },
         //eslint-disable-next-line
     [])
 
-    useLayoutEffect(() => {
-        return () => {
-            page.current = 1
-        }
-    }, [])
+    // // COMPONENT UNMOUNTED
+    // useLayoutEffect(() => {
+    //     return () => {
+    //         page.current = 1
+    //     }
+    // }, [])
 
+    // INIT
     function init() {
-        window.scrollTo(0, 0)
+        console.log('init')
+        page.current = 1
+        setGalleryData([])
+        //window.scrollTo(0, 0)
         getPage()
+
+        //console.log('updated gallery data:', galleryData)
     }
 
     async function getPage() {
-
-        console.log("this is my galleryData:", galleryData)
-
-        // HAVING THIS HERE PROVES MY ASYNC IS OFF
-        // if (galleryData) {
-        //     setTimeout(() => {
-        //         console.log('timer')
-        //     }, 500);
-        // }
-
-        console.log("I am getting the page:", page.current)
+        //console.log('this is my page and gallery data:', page, galleryData)
 
         await axios
         .get(`${linky}artwork/page/${page.current}`)
-        .then(res => {
-
-            console.log('this is the response:', res, typeof res)
-
-            // THIS IS HOW THE LOADING TURNS INTO AN END MESSAGE -- WE NEED IT
-            if (res.data.length < 6) {
-                setTimeout(() => {
-                    setHasMore(false)
-                }, 1000)
+        .then(response => {
+            //console.log('the response:', response)
+            if (response.data.length === 0) {
+                setHasMore(false)
             }
-
+            //console.log('this is the gallery data I am concatting to:', galleryData)
             setGalleryData(
-                galleryData.concat(res.data)
+                galleryData.concat(response.data)
             )
         })
-    
         .catch(error => {
-            console.log("There was an error retrieving the gallery items...", error);
-            })
+            console.log('the error', error)
+        })
     }
 
-    function nextPage() {
+    // // THIS GETS DATA
+    // async function getData() {
+    //     const res = await axios
+    //     .get(`${linky}artwork/page/${page.current}`)
+    //     //console.log('axios data:', res)
 
-        page.current = page.current + 1
-        setTimeout(() => {
-            getPage()
-        }, 1000)
+    //     return res.data
+    // }
+
+    // // THIS HANDLES THE DATA
+    // async function getPage() {
+    //     //console.log('this is the gallery data:', galleryData)
+    //     //console.log('calling');
+    //     const res = await getData()
+    //     //console.log('received!', res);
+
+    //     setGalleryData(
+    //         galleryData.concat(res)
+    //     )
+    // }
+
+    // // GET NEW PAGE DATA
+    // async function getPage() {
+
+    //     console.log("this is my galleryData:", galleryData)
+
+    //     // HAVING THIS HERE PROVES MY ASYNC IS OFF
+    //     // if (galleryData) {
+    //     //     setTimeout(() => {
+    //     //         console.log('timer')
+    //     //     }, 500);
+    //     // }
+
+    //     console.log("I am getting the page:", page.current)
+
+    //     await axios
+    //     .get(`${linky}artwork/page/${page.current}`)
+    //     .then(res => {
+
+    //         console.log('this is the response:', res, typeof res)
+
+    //         // THIS IS HOW THE LOADING TURNS INTO AN END MESSAGE -- WE NEED IT
+    //         if (res.data.length < 6) {
+    //             setTimeout(() => {
+    //                 setHasMore(false)
+    //             }, 1000)
+    //         }
+
+    //         setGalleryData(
+    //             galleryData.concat(res.data)
+    //         )
+    //     })
+    
+    //     .catch(error => {
+    //         console.log("There was an error retrieving the gallery items...", error);
+    //         })
+    // }
+
+    async function nextPage() {
+        const res = await getPage()
+
+        return res
+        // setTimeout(() => {
+        //     getPage()
+
+        //     console.log('updated gallery data:', galleryData)
+            
+        // }, 1000)
 
     }
 
@@ -83,7 +137,13 @@ export default function GalleryContainer() {
 
             <InfiniteScroll
                 dataLength={galleryData.length}
-                next={() => nextPage()}
+                next={() => {
+
+                    console.log("NEXT")
+                    page.current += 1
+                    getPage()
+                    
+                    }}
                 hasMore={hasMore}
                 loader={
                     <div className="gallery-item">
