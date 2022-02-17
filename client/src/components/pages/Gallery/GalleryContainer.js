@@ -14,11 +14,18 @@ export default function GalleryContainer() {
 
     const page = useRef(1)
     const [galleryData, setGalleryData] = useState([])
-    const [hasMore, setHasMore] = useState(true)
+    const [hasMore, setHasMore] = useState(false)
 
     // COMPONENT MOUNTED
     useEffect(
-        () => { init() },
+        () => { 
+            console.log('init')
+            page.current = 1
+            setGalleryData([])
+            //window.scrollTo(0, 0)
+            getPage(1)
+            setHasMore(true)
+         },
         //eslint-disable-next-line
     [])
 
@@ -29,22 +36,11 @@ export default function GalleryContainer() {
     //     }
     // }, [])
 
-    // INIT
-    function init() {
-        console.log('init')
-        page.current = 1
-        setGalleryData([])
-        //window.scrollTo(0, 0)
-        getPage()
-
-        //console.log('updated gallery data:', galleryData)
-    }
-
-    async function getPage() {
+    async function getPage(pageNum) {
         //console.log('this is my page and gallery data:', page, galleryData)
 
         await axios
-        .get(`${linky}artwork/page/${page.current}`)
+        .get(`${linky}artwork/page/${pageNum}`)
         .then(response => {
             //console.log('the response:', response)
             if (response.data.length === 0) {
@@ -118,16 +114,11 @@ export default function GalleryContainer() {
     //         })
     // }
 
-    async function nextPage() {
-        const res = await getPage()
-
-        return res
-        // setTimeout(() => {
-        //     getPage()
-
-        //     console.log('updated gallery data:', galleryData)
-            
-        // }, 1000)
+    function nextPage() {
+        //console.log('I tried to get the next page')
+        if (galleryData) {
+            getPage(page.current)
+        }
 
     }
 
@@ -141,9 +132,11 @@ export default function GalleryContainer() {
 
                     console.log("NEXT")
                     page.current += 1
-                    getPage()
+                    nextPage()
                     
                     }}
+                children={<div className="gallery-item"></div>}
+                scrollThreshold="0"
                 hasMore={hasMore}
                 loader={
                     <div className="gallery-item">
