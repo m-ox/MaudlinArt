@@ -22,31 +22,20 @@ export default function GalleryContainer() {
             console.log('init')
             page.current = 1
             setGalleryData([])
-            //window.scrollTo(0, 0)
             getPage(1)
             setHasMore(true)
          },
         //eslint-disable-next-line
     [])
 
-    // // COMPONENT UNMOUNTED
-    // useLayoutEffect(() => {
-    //     return () => {
-    //         page.current = 1
-    //     }
-    // }, [])
-
     async function getPage(pageNum) {
-        //console.log('this is my page and gallery data:', page, galleryData)
 
         await axios
         .get(`${linky}artwork/page/${pageNum}`)
         .then(response => {
-            //console.log('the response:', response)
             if (response.data.length === 0) {
                 setHasMore(false)
             }
-            //console.log('this is the gallery data I am concatting to:', galleryData)
             setGalleryData(
                 galleryData.concat(response.data)
             )
@@ -55,67 +44,7 @@ export default function GalleryContainer() {
             console.log('the error', error)
         })
     }
-
-    // // THIS GETS DATA
-    // async function getData() {
-    //     const res = await axios
-    //     .get(`${linky}artwork/page/${page.current}`)
-    //     //console.log('axios data:', res)
-
-    //     return res.data
-    // }
-
-    // // THIS HANDLES THE DATA
-    // async function getPage() {
-    //     //console.log('this is the gallery data:', galleryData)
-    //     //console.log('calling');
-    //     const res = await getData()
-    //     //console.log('received!', res);
-
-    //     setGalleryData(
-    //         galleryData.concat(res)
-    //     )
-    // }
-
-    // // GET NEW PAGE DATA
-    // async function getPage() {
-
-    //     console.log("this is my galleryData:", galleryData)
-
-    //     // HAVING THIS HERE PROVES MY ASYNC IS OFF
-    //     // if (galleryData) {
-    //     //     setTimeout(() => {
-    //     //         console.log('timer')
-    //     //     }, 500);
-    //     // }
-
-    //     console.log("I am getting the page:", page.current)
-
-    //     await axios
-    //     .get(`${linky}artwork/page/${page.current}`)
-    //     .then(res => {
-
-    //         console.log('this is the response:', res, typeof res)
-
-    //         // THIS IS HOW THE LOADING TURNS INTO AN END MESSAGE -- WE NEED IT
-    //         if (res.data.length < 6) {
-    //             setTimeout(() => {
-    //                 setHasMore(false)
-    //             }, 1000)
-    //         }
-
-    //         setGalleryData(
-    //             galleryData.concat(res.data)
-    //         )
-    //     })
-    
-    //     .catch(error => {
-    //         console.log("There was an error retrieving the gallery items...", error);
-    //         })
-    // }
-
     function nextPage() {
-        //console.log('I tried to get the next page')
         if (galleryData) {
             getPage(page.current)
         }
